@@ -1,0 +1,39 @@
+Table clients {
+  id integer [primary key]
+  name varchar
+  cpf varchar
+  email varchar
+}
+
+Table products {
+  id integer [primary key]
+  name string
+}
+
+Table orders {
+  id integer [primary key]
+  reference varchar
+  totalPrice integer
+  totalPriceBV integer
+  profitability integer
+  spent integer
+  status varchar
+  created_at timestamp
+  client_id integer
+}
+
+Table order_item {
+    id integer [primary key]
+    unitPrice integer
+    amount integer
+    cost integer
+    customization integer
+    log integer
+    discount integer
+    product_id integer
+    order_id integer
+}
+
+Ref: order_item.product_id > products.id
+Ref: order_item.order_id > orders.id
+Ref: orders.client_id > clients.id
