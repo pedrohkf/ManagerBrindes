@@ -1,6 +1,7 @@
 import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { Client } from "./clients.entity";
+import { Client } from "../clients/entities/clients.entity";
 import { OrderItem } from "./order_item.entity";
+import { statusOrder } from "../orders/enums/status_order.enum";
 
 @Entity()
 export class Order {
@@ -23,7 +24,7 @@ export class Order {
     spent: number;
 
     @Column()
-    status: "pendente" | "enviado" | "finalizado";
+    status: statusOrder;
 
     @Column()
     create_at: Date;

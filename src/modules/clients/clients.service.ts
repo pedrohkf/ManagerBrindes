@@ -1,15 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Client } from 'src/entities/clients.entity';
-import { Repository } from 'typeorm';
+import { Client } from 'src/modules/clients/entities/clients.entity';
 import { CreateClientDto } from './dto/create-client.dto';
 import { UpdateClientDto } from './dto/update-client.dto';
+import { ClientsRepository } from './clients.repository';
+
 
 @Injectable()
 export class ClientsService {
     constructor(
         @InjectRepository(Client)
-        private readonly clientRepository: Repository<Client>
+        private readonly clientRepository: ClientsRepository
     ) { }
 
     async findAllClients(): Promise<Client[]> {
