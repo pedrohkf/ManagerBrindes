@@ -1,7 +1,7 @@
 import { Column, Entity, Generated, ManyToOne, OneToMany, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
-import { Client } from "../clients/entities/clients.entity";
 import { OrderItem } from "./order_item.entity";
-import { statusOrder } from "../orders/enums/status_order.enum";
+import { statusOrder } from "../enums/status_order.enum";
+import { Client } from "src/modules/clients/entities/clients.entity";
 
 @Entity()
 export class Order {
