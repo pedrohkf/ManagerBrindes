@@ -1,10 +1,14 @@
-import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, Generated, ManyToOne, OneToMany, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 import { Client } from "../clients/entities/clients.entity";
 import { OrderItem } from "./order_item.entity";
 import { statusOrder } from "../orders/enums/status_order.enum";
 
 @Entity()
 export class Order {
+    @PrimaryColumn({ type: "uuid" })
+    @Generated("uuid")
+    uuid: string;
+
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -32,6 +36,6 @@ export class Order {
     @ManyToOne(() => Client, { onDelete: 'SET NULL' })
     client_id: number;
 
-    @OneToMany(() => OrderItem, item => item.order_id)
+    @OneToMany(() => OrderItem, item => item.order_uuid)
     items: OrderItem[]
 }

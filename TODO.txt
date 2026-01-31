@@ -1,2 +1,3 @@
--- Modulo de Usuário
+-- Modulo de Usuário - Finally
 -- Modulo de Autenticação.
+-- GuiID
