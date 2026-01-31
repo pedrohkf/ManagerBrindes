@@ -23,7 +23,7 @@ export class Order {
     @Column()
     spent: number;
 
-    @Column()
+    @Column({ nullable: true })
     status: statusOrder;
 
     @Column()
