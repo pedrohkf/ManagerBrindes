@@ -6,10 +6,11 @@ import { ProductsModule } from './modules/products/products.module';
 import { ClientsModule } from './modules/clients/clients.module';
 import { OrdersModule } from './modules/orders/orders.module';
 import { UserModule } from './modules/users/users.module';
+import { AuthModule } from './modules/auth/auth.module';
 
 
 @Module({
-  imports: [ProductsModule, ClientsModule, OrdersModule, UserModule,
+  imports: [ProductsModule, ClientsModule, OrdersModule, UserModule, AuthModule,
     ConfigModule.forRoot({
       isGlobal: true,
     }),
@@ -26,7 +27,9 @@ import { UserModule } from './modules/users/users.module';
       ssl: {
         rejectUnauthorized: false,
       }
-    })
+    }),
+
+    AuthModule
   ],
   controllers: [],
   providers: [],
